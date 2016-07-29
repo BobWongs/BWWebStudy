@@ -1,0 +1,104 @@
+<!--
+    由于创建高级的布局非常耗时，使用模板是一个快速的选项。通过搜索引擎可以找到很多免费的网站模板（您可以使用这些预先构建好的网站布局，并优化它们）。
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout Div</title>
+    <style type="text/css">
+        div#container {
+            /*width: 500px;*/
+        }
+        div#header {
+            background-color: greenyellow;
+        }
+        div#menu {
+            background-color: indianred;
+            height: 200px;
+            width: 100px;
+            float: left;
+        }
+        div#content {
+            background-color: aqua;
+            height: 200px;
+            /*width: 400px;*/
+            /*float: left;*/
+        }
+        div#footer {
+            background-color: antiquewhite;
+            clear: both;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 0;
+        }
+        h2 {
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        ul {
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+    使用 <div> 元素
+    -->
+
+<div id="container">
+
+    <div id="header">
+        <h1>Main Title of Web Page</h1>
+    </div>
+
+    <div id="menu">
+        <h2>Menu</h2>
+    </div>
+
+    <div id="content">Content</div>
+
+    <div id="footer">footer</div>
+
+</div>
+
+    <br />
+    <hr />
+    <br />
+
+    <!--
+    使用表格
+    即使可以使用 HTML 表格来创建漂亮的布局，但设计表格的目的是呈现表格化数据 - 表格不是布局工具！
+    -->
+    <table width="500" border="0">
+        <tr>
+            <td colspan="2" style="background-color:#99bbbb;">
+                <h1>Main Title</h1>
+            </td>
+        </tr>
+
+        <tr valign="top">
+            <td style="background-color:#ffff99;width:100px;">
+                <b>Menu</b><br />
+                HTML<br />
+                CSS<br />
+                JavaScript
+            </td>
+            <td style="background-color:#EEEEEE;height:200px;width:400px;">
+                Content goes here</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="background-color:#99bbbb;text-align:center;">
+                Footer</td>
+        </tr>
+    </table>
+
+</body>
+</html>
