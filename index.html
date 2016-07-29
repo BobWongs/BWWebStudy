@@ -7,6 +7,8 @@
     <!--
     外部样式表
     当样式需要被应用到很多页面的时候，外部样式表将是理想的选择。使用外部样式表，你就可以通过更改一个文件来改变整个站点的外观
+    rel:relationship
+    href:hypertext reference
     -->
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -29,9 +31,10 @@
     <p style="color: green; margin-left: 20px">
     内联样式
     </p>
+    <hr />
 
 	<!--
-	 heading
+	 h:heading
 	 <h1> - <h6>,<h1> 定义最大的标题。<h6> 定义最小的标题。
 	 浏览器会自动地在标题的前后添加空行。
 	 默认情况下，HTML 会自动地在块级元素前后添加一个额外的空行，比如段落、标题元素前后.
@@ -43,6 +46,7 @@
 
 	<!--
 	 水平线
+	 hr:horizontal rule
 	-->
 	<hr />
 	<hr>
@@ -53,28 +57,38 @@
 
 	<!--
      段落
+     p:paragraph
      浏览器会自动地在段落的前后添加空行。（<p> 是块级元素）
      使用空的段落标记 <p></p> 去插入一个空行是个坏习惯。用 <br /> 标签代替它！但是不要用 <br /> 标签去创建列表
     -->
     <p>this is a paragraph</p>
+    <hr />
 
     <!--
      折行
+     br:break
      不产生一个新段落的情况下进行换行
     -->
     <p>
-        the former<br />
+        the former append with mark<br />
         the latter
     </p>
+    <hr />
 
     <!-- 文本格式化 -->
     <p>
         <!--
         文本格式化标签
-        bold
+        b:bold
         big
-        emphasize
-        italic
+        em:emphasize
+        i:italic
+        small
+        strong
+        sub
+        sup
+        ins:insert
+        del:delete
         -->
         <b>定义粗体文本</b>
         <br />
@@ -88,9 +102,9 @@
         <br />
         <strong>定义加重语气</strong>
         <br />
-        <sub>定义下标字</sub>
+        normal text<sub>定义下标字</sub>
         <br />
-        <sup>定义上标字</sup>
+        normal text<sup>定义上标字</sup>
         <br />
         <ins>定义插入字</ins>
         <br />
@@ -127,6 +141,149 @@
         <cite>定义引用、引证</cite>
         <br />
         <dfn>定义一个定义项目</dfn>
+    </p>
+    <hr />
+
+    <!--
+    链接
+    a:anchor
+    超链接可以是一个字，一个词，或者一组词，也可以是一幅图像，或其他 HTML 元素,您可以点击这些内容来跳转到新的文档或者当前文档中的某个部分
+    两种使用 <a> 标签的方式:
+        1.通过使用 href 属性 - 创建指向另一个文档的链接
+        2.通过使用 name 属性 - 创建文档内的书签
+    target 属性
+        使用 Target 属性，你可以定义被链接的文档在何处显示。
+        _blank
+        _parent
+        _self
+        _top
+    name 属性
+        当使用命名锚（named anchors）时，我们可以创建直接跳至该命名锚（比如页面中某个小节）的链接，这样使用者就无需不停地滚动页面来寻找他们需要的信息了
+        命名锚经常用于在大型文档开始位置上创建目录
+        假如浏览器找不到已定义的命名锚，那么就会定位到文档的顶端。不会有错误发生
+    -->
+    <p>
+        <a href="index.html">Link text</a><br />
+        <a href="index.html" target="_blank">Link text with blank target</a><br />
+
+        <a name="tips">基本的注意事项 - 有用的提示</a><br />
+        <a href="#tips">有用的提示</a><br />
+        <a href="index.html#tips">有用的提示(在其他页面中创建指向该锚的链接)</a><br />
+    </p>
+    <hr />
+
+    <!--
+    图像标签（<img>）和源属性（Src）
+    img:image
+    src:source
+    <img> 是空标签，意思是说，它只包含属性，并且没有闭合标签。
+    源属性的值是图像的 URL 地址。
+    替换文本属性（Alt）
+    alt 属性
+        用来为图像定义一串预备的可替换的文本。替换文本属性的值是用户定义的。
+        在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。此时，浏览器将显示这个替代性的文本而不是图像。
+    注意事项
+        假如某个 HTML 文件包含十个图像，那么为了正确显示这个页面，需要加载 11 个文件。加载图片是需要时间的，所以我们的建议是：慎用图片
+    -->
+    <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" width="100" height="50">
+    <br />
+    <img src="http://www.w3school.com.cn/images/boat.gif" alt="Default Text">
+    <hr />
+
+    <!--
+    表格
+        table
+        th:table heading
+        tr:table row
+        td:table data
+        表格由 <table> 标签来定义。每个表格均有若干行（由 <tr> 标签定义），每行被分割为若干单元格（由 <td> 标签定义）。字母 td 指表格数据（table data），即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。
+    表格和边框属性
+        使用border属性来显示一个带有边框的表格
+    表格的表头
+        表格的表头使用 <th> 标签进行定义。
+    表格中的空单元格
+        如果某个单元格是空的（没有内容），浏览器可能无法显示出这个单元格的边框。
+        这个空的单元格的边框没有被显示出来。为了避免这种情况，在空单元格中添加一个空格占位符，就可以将边框显示出来。
+    -->
+    <table border="1" width="300">
+        <caption>表格标题</caption>
+        <tr>
+            <th>Heading1</th>
+            <th>Heading2</th>
+        </tr>
+        <tr>
+            <td>row1, cell1</td>
+            <td>row1, cell2</td>
+        </tr>
+        <tr>
+            <td>row2, cell1</td>
+            <td>row2, cell2</td>
+        </tr>
+        <tr>
+            <td>row3, cell2</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <hr />
+
+    <!--
+    列表
+        无序列表
+        有序列表
+        定义列表
+    mark
+        ul:unordered list
+        ol:ordered list
+        li:list
+        dl:definition list
+        dt:
+        dd:
+    -->
+    <ul>
+        <li>Item0</li>
+        <li>Item1
+            <ul>
+                <li>Item1-1</li>
+                <li>Item1-2
+                    <ul>
+                        <li>Item1-2-0</li>
+                        <li>Item1-2-1</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Item2</li>
+    </ul>
+    <ol>
+        <li>Item0</li>
+        <li>Item1</li>
+        <li>Item2</li>
+    </ol>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>Black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>White cold drink</dd>
+    </dl>
+    <hr />
+
+    <!--
+    html note
+    显示特殊字符，如尖括号 “<”,">"等等
+        如果要在标签中显示"<"或者">"等特殊字符，可以使用“&”开头，“;”结尾，中间加上字符对应的编码;
+        > &gt;
+        < &lt;
+        >= &ge;
+        <= &le;
+    -->
+    <p>
+        html note<br />
+        &gt;
+        &lt;
+        &ge;
+        &le;
+        <br />
+        &lt;br&gt;
     </p>
 
 </body>
